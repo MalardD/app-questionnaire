@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/questionnaire">questionnaire</router-link>
     </div>
     <router-view/>
   </div>
@@ -22,8 +22,45 @@
     font-weight: bold;
     color: #2c3e50;
     &.router-link-exact-active {
-      color: #42b983;
+      color: #e45b00;
     }
   }
+}
+
+
+
+
+//CSS pour la page d'accueil du questionnaire
+//.questionnaire{
+
+//}
+
+
+h1{
+  margin-bottom: 3%;
+}
+
+.nom{
+  padding-right: 1.5%;
+}
+
+.prenom{
+  padding-right: 0.5%;
+}
+
+.societe{
+  padding-right: 0.6%;
+}
+
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+
+.button:hover {
+  background-color: #e45b00; 
+  color: white;
 }
 </style>

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import Result from '@/components/Result'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/questions',
       name: 'questions',
       component: () => import(/* webpackChunkName: "Questions" */ './views/Questions.vue')
-    }
+    },
+    {
+      path: '/result',
+      name: 'Result',
+      component: Result
+    },
   ]
 })

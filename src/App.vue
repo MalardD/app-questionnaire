@@ -8,6 +8,26 @@
   </div>
 </template>
 
+<script>
+  import Vue from 'vue'
+  import VueMaterial from 'vue-material'
+  import 'vue-material/dist/vue-material.min.css'
+  import 'vue-material/dist/theme/default.css'
+
+  Vue.use(VueMaterial)
+  export default {
+  name: 'App',
+  data () {
+    return {}
+  },
+  methods: {},
+  created: function () {},
+  mounted: function () {},
+  computed: {},
+  watch: {}
+}
+</script>
+
 <style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

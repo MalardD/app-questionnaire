@@ -5,20 +5,20 @@
     <h1>{{libelle}}</h1>
 
     <!-- Affichage des reponses sous la forme de case à cocher-->
-    <el-checkbox-group v-model="reponse">
-      <el-checkbox v-for="option in optionReponse" v-bind:key="option" :label="option" @click="action(index)">{{option}}</el-checkbox>
-    </el-checkbox-group>
-    {{reponse}}
+
+    <md-checkbox v-for="option in optionReponse" v-model="reponse" :value="option">{{ option }}</md-checkbox>
+
+    <!--<el-checkbox v-for="option in optionReponse" v-bind:key="option" :label="option" @click="action(index)">{{option}}</el-checkbox>-->
+    
 
     <!-- Bouton permettant la navigation entre les pages 
     ps: Ne fonctionne pas-->
-    <el-button-group>
-      <el-button type="primary" icon="el-icon-arrow-left">Question précédente</el-button>
-      <el-button type="primary">Question suivante<i class="el-icon-arrow-right el-icon-right"></i></el-button>
-    </el-button-group>
-
+    
     <!-- Message affichant le score mais ne fonctionne pas-->
     <b-alert v-if="fin" show>Votre score est : {{ score }} / {{ questions.length }}</b-alert>
+    <br>
+    <md-button class="md-raised md-primary" v-on:click="$emit('nextQuestion', checkResponse())">Suivante →</md-button>
+    <br><br><br><br>{{reponse}}
   </div>
 </template>
 
@@ -28,17 +28,23 @@
     props: {
         libelle: String,
         reponse: String,
-        optionReponse: Array
+        optionReponse: Array,
+        correctAnswer: String
     },
-     
-    data (){
-        return{
-             libelle: this.libelle,
+    data () {
+        return {
+             /*libelle: this.libelle,
              reponse: this.reponse,
-             optionReponse: this.optionReponse
+             optionReponse: this.optionReponse*/
         }
+    },
+    methods:{
+      checkResponse: function () {
+        var cb_res = true
+        if (this.reponse.indexOf(this.correctAnswer) === -1)
+          cb_res = false
+        return cb_res
+      }
     }
-    
-  
-  }    
+} 
 </script>
